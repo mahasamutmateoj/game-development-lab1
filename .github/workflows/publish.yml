@@ -1,0 +1,58 @@
+name: Publish Lab 01
+
+on:
+  push:
+    paths:
+      - Lab01_Project.zip
+      - .github/workflows/publish.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Expand editable source project
+        shell: bash
+        run: |
+          set -euo pipefail
+          unpack_dir="$RUNNER_TEMP/lab01"
+          mkdir -p "$unpack_dir"
+          unzip -q -o Lab01_Project.zip -d "$unpack_dir"
+          test -f "$unpack_dir/Lab01_Mahasamut/project.godot"
+          test -f "$unpack_dir/Lab01_Mahasamut/docs/lab01.wasm"
+          test -f "$unpack_dir/Lab01_Mahasamut/docs/demo.mp4"
+          cp -a "$unpack_dir/Lab01_Mahasamut/." .
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- .gitignore README.md asset_sources.md project.godot export_presets.cfg assets scenes scripts docs evidence
+          if ! git diff --cached --quiet; then
+            git commit -m "Expand editable Godot project and Web build"
+            git push
+          fi
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Web build
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
