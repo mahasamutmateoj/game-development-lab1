@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <linearGradient id="space" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071322"/>
+      <stop offset="0.6" stop-color="#0B1C31"/>
+      <stop offset="1" stop-color="#10263A"/>
+    </linearGradient>
+    <linearGradient id="horizon" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#40D9D0" stop-opacity="0"/>
+      <stop offset="1" stop-color="#40D9D0" stop-opacity="0.11"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#space)" d="M0 0h1280v720H0z"/>
+  <path fill="#09172A" opacity="0.4" d="M0 0h800L0 660z"/>
+  <path fill="#12324A" opacity="0.3" d="M1010 0h270v720H760z"/>
+  <!-- Quiet, spacious backdrop for the introduction. -->
+  <path fill="#091A2D" fill-opacity="0.55" d="M48 125h731v467H48z"/>
+  <path fill="none" stroke="#70DFD8" stroke-opacity="0.09" d="M48 179v-54h54M725 125h54v54M48 538v54h54M725 592h54v-54"/>
+  <!-- Fine orbital geometry surrounds the portrait without crossing the text. -->
+  <circle cx="1093" cy="316" r="260" fill="none" stroke="#66D8D4" stroke-opacity="0.08" stroke-width="1"/>
+  <circle cx="1093" cy="316" r="233" fill="none" stroke="#66D8D4" stroke-opacity="0.07" stroke-width="1"/>
+  <path d="M913 128a260 260 0 0 1 368 311" fill="none" stroke="#66D8D4" stroke-opacity="0.25" stroke-width="2"/>
+  <path d="M883 464a260 260 0 0 0 310 82" fill="none" stroke="#E9B556" stroke-opacity="0.2" stroke-width="2"/>
+  <circle cx="1199" cy="78" r="5" fill="#E9B556"/>
+  <circle cx="837" cy="273" r="3" fill="#62DCD2" fill-opacity="0.65"/>
+  <circle cx="1240" cy="531" r="3" fill="#62DCD2" fill-opacity="0.45"/>
+  <!-- A restrained portrait plate and corner markings. -->
+  <path d="M852 145h329v430H852z" fill="#091729" fill-opacity="0.35"/>
+  <path d="M852 165v-20h20M1161 145h20v20M852 555v20h20M1161 575h20v-20" fill="none" stroke="#62DCD2" stroke-opacity="0.28" stroke-width="2"/>
+  <!-- Sparse stars, with the title and copy region deliberately clear. -->
+  <g fill="#BFEFF1">
+    <circle cx="49" cy="55" r="1.4" opacity="0.65"/>
+    <circle cx="177" cy="39" r="1" opacity="0.45"/>
+    <circle cx="306" cy="82" r="1.3" opacity="0.5"/>
+    <circle cx="488" cy="40" r="1" opacity="0.4"/>
+    <circle cx="682" cy="71" r="1.4" opacity="0.65"/>
+    <circle cx="766" cy="37" r="1" opacity="0.35"/>
+    <circle cx="873" cy="83" r="1.2" opacity="0.45"/>
+    <circle cx="1038" cy="38" r="1" opacity="0.5"/>
+    <circle cx="1240" cy="149" r="1.2" opacity="0.65"/>
+    <circle cx="1216" cy="273" r="1" opacity="0.4"/>
+    <circle cx="1236" cy="390" r="1.4" opacity="0.45"/>
+    <circle cx="25" cy="222" r="1" opacity="0.4"/>
+    <circle cx="29" cy="405" r="1.2" opacity="0.5"/>
+    <circle cx="801" cy="406" r="1" opacity="0.45"/>
+    <circle cx="814" cy="564" r="1.2" opacity="0.5"/>
+    <circle cx="44" cy="606" r="1" opacity="0.45"/>
+    <circle cx="1223" cy="612" r="1.2" opacity="0.55"/>
+  </g>
+  <g fill="none" stroke="#8EE7E1" stroke-linecap="round">
+    <path d="M569 91v8m-4-4h8" opacity="0.45"/>
+    <path d="M1223 60v10m-5-5h10" opacity="0.65"/>
+    <path d="M28 499v6m-3-3h6" opacity="0.35"/>
+    <path d="M809 195v8m-4-4h8" opacity="0.35"/>
+  </g>
+  <path d="M49 89h71" stroke="#62DCD2" stroke-opacity="0.25"/>
+  <path d="M49 89h23" stroke="#62DCD2" stroke-width="2"/>
+  <path d="M750 77h45m-9-9 9 9-9 9" fill="none" stroke="#E9B556" stroke-opacity="0.3"/>
+  <!-- A low horizon supplies depth while keeping the footer unobstructed. -->
+  <path d="M0 605h1280v115H0z" fill="url(#horizon)"/>
+  <g stroke="#6BD7D4" stroke-opacity="0.075" fill="none">
+    <path d="M0 620h1280M0 646h1280M0 680h1280M0 718h1280"/>
+    <path d="M550 605 135 720M581 605 303 720M610 605 471 720M640 605v115M670 605l139 115M699 605l278 115M730 605l415 115"/>
+  </g>
+  <path d="M48 622h1184" stroke="#91E5E0" stroke-opacity="0.13"/>
+  <path d="M48 622h57" stroke="#62DCD2" stroke-opacity="0.6" stroke-width="2"/>
+  <path d="M1191 650h17v17h-17z" fill="none" stroke="#E9B556" stroke-opacity="0.4"/>
+  <path d="M1221 650h11v11h-11z" fill="#62DCD2" fill-opacity="0.25"/>
+</svg>

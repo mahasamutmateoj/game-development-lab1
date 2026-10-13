@@ -1,0 +1,11 @@
+.godot/
+*.avi
+*.zip
+.DS_Store
+addons/evidence/
+docs/*.import
+evidence/*.import
+evidence/paused.png
+evidence/resumed.png
+evidence/reset.png
+evidence/video_player.png

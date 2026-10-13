@@ -1,0 +1,275 @@
+[gd_scene load_steps=13 format=3]
+
+[ext_resource type="Script" path="res://scripts/introduction.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/background.svg" id="2"]
+[ext_resource type="Texture2D" path="res://assets/portrait.png" id="3"]
+[ext_resource type="Texture2D" path="res://assets/controller.svg" id="4"]
+[ext_resource type="Texture2D" path="res://assets/rocket.svg" id="5"]
+[ext_resource type="Texture2D" path="res://assets/star.svg" id="6"]
+[ext_resource type="FontFile" path="res://assets/Thai.ttf" id="7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleButton"]
+bg_color = Color(0.10, 0.84, 0.80, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_left = 12
+corner_radius_bottom_right = 12
+content_margin_left = 22.0
+content_margin_right = 22.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleSecondary"]
+bg_color = Color(0.065, 0.13, 0.20, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.20, 0.34, 0.43, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_left = 12
+corner_radius_bottom_right = 12
+content_margin_left = 22.0
+content_margin_right = 22.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+
+[sub_resource type="Animation" id="RESET"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Portrait:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {"times": PackedFloat32Array(0), "transitions": PackedFloat32Array(1), "update": 0, "values": [Vector2(1030, 391)]}
+
+[sub_resource type="Animation" id="WelcomeLoop"]
+resource_name = "welcome_loop"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Portrait:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {"times": PackedFloat32Array(0, 1.5, 3, 4.5, 6), "transitions": PackedFloat32Array(1, 1, 1, 1, 1), "update": 0, "values": [Vector2(1030,391), Vector2(1030,379), Vector2(1030,391), Vector2(1030,403), Vector2(1030,391)]}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Controller:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {"times": PackedFloat32Array(0, 1.5, 3, 4.5, 6), "transitions": PackedFloat32Array(1, 1, 1, 1, 1), "update": 0, "values": [Vector2(773,545), Vector2(773,532), Vector2(773,545), Vector2(773,558), Vector2(773,545)]}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Controller:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {"times": PackedFloat32Array(0, 1.5, 3, 4.5, 6), "transitions": PackedFloat32Array(1, 1, 1, 1, 1), "update": 0, "values": [-0.12, 0.08, 0.12, -0.08, -0.12]}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Rocket:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {"times": PackedFloat32Array(0, 1.5, 3, 4.5, 6), "transitions": PackedFloat32Array(1, 1, 1, 1, 1), "update": 0, "values": [Vector2(803,202), Vector2(820,187), Vector2(825,205), Vector2(801,218), Vector2(803,202)]}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Rocket:rotation")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {"times": PackedFloat32Array(0, 1.5, 3, 4.5, 6), "transitions": PackedFloat32Array(1, 1, 1, 1, 1), "update": 0, "values": [0.22, 0.35, 0.22, 0.1, 0.22]}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Star:rotation")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {"times": PackedFloat32Array(0, 6), "transitions": PackedFloat32Array(1, 1), "update": 0, "values": [0.0, 6.283185]}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary"]
+_data = {"RESET": SubResource("RESET"), "welcome_loop": SubResource("WelcomeLoop")}
+
+[node name="Introduction" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("2")
+mouse_filter = 2
+
+[node name="Course" type="Label" parent="."]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 44.0
+offset_right = 812.0
+offset_bottom = 84.0
+theme_override_colors/font_color = Color(0.60,0.75,0.86,1)
+theme_override_fonts/font = ExtResource("7")
+theme_override_font_sizes/font_size = 19
+text = "COMPUTER GAME DEVELOPMENT"
+vertical_alignment = 1
+
+[node name="Lab" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1070.0
+offset_top = 42.0
+offset_right = 1220.0
+offset_bottom = 82.0
+theme_override_colors/font_color = Color(0.21,0.87,0.83,1)
+theme_override_fonts/font = ExtResource("7")
+theme_override_font_sizes/font_size = 17
+text = "LAB 01  /  2D"
+vertical_alignment = 1
+
+[node name="Eyebrow" type="Label" parent="."]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 158.0
+offset_right = 692.0
+offset_bottom = 202.0
+theme_override_colors/font_color = Color(0.20,0.89,0.85,1)
+theme_override_fonts/font = ExtResource("7")
+theme_override_font_sizes/font_size = 30
+text = "สวัสดีครับ ผม"
+vertical_alignment = 1
+
+[node name="NameFirst" type="Label" parent="."]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 218.0
+offset_right = 733.0
+offset_bottom = 301.0
+theme_override_colors/font_color = Color(0.92, 0.96, 1, 1)
+theme_override_fonts/font = ExtResource("7")
+theme_override_font_sizes/font_size = 65
+text = "มหาสมุทร"
+vertical_alignment = 1
+
+[node name="NameRest" type="Label" parent="."]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 302.0
+offset_right = 750.0
+offset_bottom = 382.0
+theme_override_colors/font_color = Color(0.92, 0.96, 1, 1)
+theme_override_fonts/font = ExtResource("7")
+theme_override_font_sizes/font_size = 55
+text = "แมทิโอ เจแคน"
+vertical_alignment = 1
+
+[node name="Identity" type="Label" parent="."]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 410.0
+offset_right = 695.0
+offset_bottom = 456.0
+theme_override_colors/font_color = Color(1,0.73,0.32,1)
+theme_override_fonts/font = ExtResource("7")
+theme_override_font_sizes/font_size = 26
+text = "673380339-5   /   กลุ่ม AI2"
+vertical_alignment = 1
+
+[node name="Welcome" type="Label" parent="."]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 480.0
+offset_right = 705.0
+offset_bottom = 535.0
+theme_override_colors/font_color = Color(0.68,0.79,0.86,1)
+theme_override_fonts/font = ExtResource("7")
+theme_override_font_sizes/font_size = 26
+text = "ยินดีต้อนรับสู่ฉากแนะนำตัวของผม"
+vertical_alignment = 1
+
+[node name="Footer" type="Label" parent="."]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 655.0
+offset_right = 1072.0
+offset_bottom = 689.0
+theme_override_colors/font_color = Color(0.45,0.61,0.72,1)
+theme_override_fonts/font = ExtResource("7")
+theme_override_font_sizes/font_size = 16
+text = "มหาสมุทร แมทิโอ เจแคน   •   Computer Game Development   •   2569"
+vertical_alignment = 1
+
+[node name="Keys" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1065.0
+offset_top = 655.0
+offset_right = 1245.0
+offset_bottom = 689.0
+theme_override_colors/font_color = Color(0.45,0.61,0.72,1)
+theme_override_fonts/font = ExtResource("7")
+theme_override_font_sizes/font_size = 14
+text = "SPACE  /  R"
+vertical_alignment = 1
+
+[node name="Portrait" type="Sprite2D" parent="."]
+position = Vector2(1030, 391)
+texture = ExtResource("3")
+scale = Vector2(0.34, 0.34)
+
+[node name="Controller" type="Sprite2D" parent="."]
+position = Vector2(773, 545)
+rotation = -0.12
+texture = ExtResource("4")
+scale = Vector2(0.76, 0.76)
+
+[node name="Rocket" type="Sprite2D" parent="."]
+position = Vector2(803, 202)
+rotation = 0.22
+texture = ExtResource("5")
+scale = Vector2(0.64, 0.64)
+
+[node name="Star" type="Sprite2D" parent="."]
+position = Vector2(1185, 143)
+texture = ExtResource("6")
+scale = Vector2(0.85, 0.85)
+
+[node name="PlayButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 566.0
+offset_right = 290.0
+offset_bottom = 621.0
+theme_override_fonts/font = ExtResource("7")
+theme_override_font_sizes/font_size = 21
+theme_override_colors/font_color = Color(0.02,0.09,0.14,1)
+theme_override_colors/font_hover_color = Color(0.02,0.09,0.14,1)
+theme_override_styles/normal = SubResource("StyleButton")
+theme_override_styles/hover = SubResource("StyleButton")
+theme_override_styles/pressed = SubResource("StyleButton")
+text = "หยุดชั่วคราว"
+
+[node name="ReplayButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 307.0
+offset_top = 566.0
+offset_right = 469.0
+offset_bottom = 621.0
+theme_override_fonts/font = ExtResource("7")
+theme_override_font_sizes/font_size = 21
+theme_override_colors/font_color = Color(0.80,0.90,0.95,1)
+theme_override_styles/normal = SubResource("StyleSecondary")
+theme_override_styles/hover = SubResource("StyleSecondary")
+theme_override_styles/pressed = SubResource("StyleSecondary")
+text = "เริ่มใหม่"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {&"": SubResource("AnimationLibrary")}
+autoplay = "welcome_loop"
